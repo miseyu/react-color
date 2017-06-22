@@ -68,8 +68,9 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
         float: 'left',
         borderRadius: '4px',
         margin: '0 6px 6px 0',
-        paddingLeft: '10px',
+        paddingLeft: '8px',
         paddingTop: '5px',
+        color: 'white',
       },
       clear: {
         clear: 'both',
@@ -146,7 +147,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
 
 Twitter.defaultProps = {
   width: '276px',
-  colors: [['#4A2DD3', '正'], ['#FF0000': '負'] ],
+  colors: [['#4A2DD3', '正'], ['#FF0000', '負'] ],
   triangle: 'top-left',
 }
 
