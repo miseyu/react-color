@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle }) => {
+export const Sticky = ({ onChange, onSwatchHover, hex, colors, width, triangle }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -68,6 +68,9 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
         float: 'left',
         borderRadius: '4px',
         margin: '0 6px 6px 0',
+        paddingLeft: '8px',
+        paddingTop: '5px',
+        color: 'white',
       },
       clear: {
         clear: 'both',
@@ -124,34 +127,28 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
           return (
             <Swatch
               key={ i }
-              color={ c }
-              hex={ c }
+              color={ c[0] }
+              hex={ c[0] }
+              children= { c[1] }
               style={ styles.swatch }
               onClick={ handleChange }
               onHover={ onSwatchHover }
               focusStyle={{
-                boxShadow: `0 0 4px ${ c }`,
+                boxShadow: `0 0 4px ${ c[0] }`,
               }}
             />
           )
         }) }
-        <div style={ styles.hash }>#</div>
-        <EditableInput
-          style={{ input: styles.input }}
-          value={ hex.replace('#', '') }
-          onChange={ handleChange }
-        />
         <div style={ styles.clear } />
       </div>
     </div>
   )
 }
 
-Twitter.defaultProps = {
+Sticky.defaultProps = {
   width: '276px',
-  colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3',
-           '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
+  colors: [['#4A2DD3', '正'], ['#FF0000', '負'] ],
   triangle: 'top-left',
 }
 
-export default ColorWrap(Twitter)
+export default ColorWrap(Sticky)
